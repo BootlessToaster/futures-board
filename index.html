@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Futures Board · Kalshi line movement</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232a78d6'/><path d='M6 22l7-7 5 4 8-10' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  color-scheme: dark;
+  --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #232321; --line: #33332f;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8c8b83;
+  --accent: #3987e5; --up: 57,135,229; --down: 230,103,103;
+  --warn: #fab219; --good: #0ca30c;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface-0: #f4f4f2; --surface-1: #fcfcfb; --surface-2: #f0efec; --line: #dddcd7;
+  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #7a7974;
+  --accent: #2a78d6; --up: 42,120,214; --down: 208,59,59;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface-0); color: var(--text-primary);
+  font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+button, select, input { font: inherit; color: inherit; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 16px 20px 60px; }
+
+header { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+h1 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+h1 small { font-weight: 400; color: var(--text-muted); font-size: 13px; margin-left: 6px; }
+.status { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 13px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); }
+.dot.stale { background: var(--warn); }
+.spacer { flex: 1; }
+.iconbtn { background: var(--surface-1); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--surface-1);
+  border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 16px; position: sticky; top: 0; z-index: 5; }
+.seg { display: inline-flex; background: var(--surface-2); border-radius: 8px; padding: 2px; }
+.seg button { border: 0; background: transparent; padding: 5px 11px; border-radius: 6px; cursor: pointer; color: var(--text-secondary); }
+.seg button.on { background: var(--surface-1); color: var(--text-primary); box-shadow: 0 0 0 1px var(--line); font-weight: 600; }
+.chips { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 4px 10px; cursor: pointer; color: var(--text-secondary); font-size: 13px; }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.filters input[type=search] { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; min-width: 180px; }
+.filters label { display: inline-flex; gap: 6px; align-items: center; color: var(--text-secondary); font-size: 13px; }
+.filters select { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+
+.movers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+@media (max-width: 860px) { .movers { grid-template-columns: 1fr; } .filters { position: static; } }
+.panel { background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.panel h2 { font-size: 14px; margin: 0 0 8px; display: flex; justify-content: space-between; align-items: baseline; }
+.panel h2 span { font-weight: 400; color: var(--text-muted); font-size: 12px; }
+.mv { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 12px; align-items: center; padding: 6px 4px;
+  border-top: 1px solid var(--line); cursor: pointer; border-radius: 6px; }
+.mv:hover { background: var(--surface-2); }
+.mv .who { min-width: 0; }
+.mv .who b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mv .who i { font-style: normal; color: var(--text-muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.mv .path { font-family: var(--mono); font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+.empty { color: var(--text-muted); padding: 10px 4px; font-size: 13px; }
+
+.legend { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; color: var(--text-muted); font-size: 12px; margin: 0 0 10px; }
+.legend .sw { display: inline-flex; gap: 2px; vertical-align: middle; margin: 0 4px; }
+.legend .sw i { width: 14px; height: 12px; border-radius: 2px; display: inline-block; }
+
+.event { background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+.event > summary { list-style: none; cursor: pointer; padding: 10px 14px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.event > summary::-webkit-details-marker { display: none; }
+.event > summary::before { content: "▸"; color: var(--text-muted); width: 10px; }
+.event[open] > summary::before { content: "▾"; }
+.event > summary b { font-size: 15px; }
+.tag { font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--text-secondary); }
+.event > summary .meta { color: var(--text-muted); font-size: 12px; margin-left: auto; }
+.tbl { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 6px 10px; text-align: right; white-space: nowrap; border-top: 1px solid var(--line); }
+th { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); font-weight: 600; cursor: pointer; user-select: none; background: var(--surface-2); }
+th:first-child, td:first-child { text-align: left; }
+th.sorted::after { content: " ▾"; }
+th.sorted.asc::after { content: " ▴"; }
+td.name { font-weight: 600; max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: var(--surface-2); }
+td.num { font-family: var(--mono); }
+td.am { font-family: var(--mono); font-weight: 600; }
+td.dim { color: var(--text-muted); }
+.dl { font-family: var(--mono); font-size: 13px; border-radius: 6px; padding: 2px 6px; display: inline-block; min-width: 64px; text-align: right; }
+.spk { display: block; }
+
+dialog { border: 1px solid var(--line); border-radius: 14px; background: var(--surface-1); color: var(--text-primary);
+  width: min(920px, 96vw); padding: 0; }
+dialog::backdrop { background: rgba(0,0,0,.55); }
+.dlg-h { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px 6px; }
+.dlg-h h3 { margin: 0; font-size: 17px; }
+.dlg-h p { margin: 2px 0 0; color: var(--text-muted); font-size: 13px; }
+.stats { display: flex; gap: 22px; flex-wrap: wrap; padding: 6px 16px 10px; }
+.stats div { font-size: 12px; color: var(--text-muted); }
+.stats b { display: block; font-size: 18px; color: var(--text-primary); font-family: var(--mono); }
+.chartbox { position: relative; height: 340px; padding: 0 12px 14px; }
+.dlg-f { display: flex; gap: 10px; align-items: center; padding: 0 16px 14px; }
+.note { color: var(--text-muted); font-size: 12px; margin-top: 24px; line-height: 1.6; }
+.note code { font-family: var(--mono); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Futures Board <small>Kalshi line movement · NFL · NBA · NHL</small></h1>
+    <div class="status"><span class="dot" id="dot"></span><span id="updated">Loading…</span></div>
+    <div class="spacer"></div>
+    <button class="iconbtn" id="theme" title="Toggle light/dark">Light / Dark</button>
+  </header>
+
+  <div class="filters">
+    <div class="seg" id="sportSeg"></div>
+    <div class="chips" id="kindChips"></div>
+    <input type="search" id="q" placeholder="Search team, player, market…">
+    <label>Move window
+      <select id="win"><option value="1">1h</option><option value="24" selected>24h</option><option value="168">7d</option></select>
+    </label>
+    <label>Measure
+      <select id="measure"><option value="pp" selected>Prob. points</option><option value="rel">% of price</option></select>
+    </label>
+    <label><input type="checkbox" id="hideLong" checked> Hide &lt; 1%</label>
+    <label><input type="checkbox" id="moversOnly"> Movers only</label>
+  </div>
+
+  <div class="movers">
+    <div class="panel"><h2>Biggest movers · 24 hours <span id="m24n"></span></h2><div id="m24"></div></div>
+    <div class="panel"><h2>Biggest movers · 7 days <span id="m7n"></span></h2><div id="m7"></div></div>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <div id="board"></div>
+
+  <div class="note">
+    <b>How to read this.</b> <b>Prob</b> is the Kalshi Yes mid-price (bid/ask midpoint when the spread is ≤10¢, otherwise last trade) and
+    <b>American</b> is that probability converted to odds. <b>No-vig</b> normalizes every outcome in the event so they sum to 100%,
+    which is the number to hold against a sportsbook's no-vig line. <b>Buy</b> is what it actually costs to buy Yes now: the ask plus
+    Kalshi's estimated taker fee (<span id="feeRate">7</span>% × P × (1−P)), shown as American odds. Moves are in probability points,
+    or % of the old price if you switch <i>Measure</i>. Blue means the price went up (the line shortened); red means it went down (the line drifted).
+    Data refreshes hourly; this page re-checks every 10 minutes.
+  </div>
+</div>
+
+<dialog id="dlg">
+  <div class="dlg-h">
+    <div style="flex:1"><h3 id="dTitle"></h3><p id="dSub"></p></div>
+    <button class="iconbtn" id="dClose">✕</button>
+  </div>
+  <div class="stats" id="dStats"></div>
+  <div class="dlg-f"><div class="seg" id="rangeSeg"></div><span class="spacer"></span><span id="dNote" style="color:var(--text-muted);font-size:12px"></span></div>
+  <div class="chartbox"><canvas id="dChart"></canvas></div>
+</dialog>
+
+<script>
+const S = {
+  data: null, sport: "All", kinds: new Set(), q: "", win: "24", measure: "pp",
+  hideLong: true, moversOnly: false, sort: {}, range: "7d", chart: null, cur: null, hist: {},
+};
+const SPORTS = ["All", "NFL", "NBA", "NHL"];
+const KINDS = ["Champion", "Conference", "Division", "Playoffs", "Award", "Other"];
+const KIND_ORDER = Object.fromEntries(KINDS.map((k, i) => [k, i]));
+const SPORT_ORDER = { NFL: 0, NBA: 1, NHL: 2 };
+const PP_STEPS = [0.5, 1.5, 3, 6];      // probability points
+const REL_STEPS = [5, 15, 30, 60];      // % of old price
+const ALPHAS = [0.16, 0.30, 0.50, 0.78];
+
+// ---------- formatting
+const am = p => {
+  if (p == null || p <= 0 || p >= 1) return "—";
+  const v = p >= 0.5 ? -Math.round(100 * p / (1 - p)) : Math.round(100 * (1 - p) / p);
+  return v > 0 ? "+" + v : String(v);
+};
+const pct = (p, d = 1) => p == null ? "—" : (p * 100).toFixed(d) + "%";
+const fmtVol = v => v == null ? "—" : v >= 1e6 ? (v / 1e6).toFixed(1) + "M" : v >= 1e3 ? (v / 1e3).toFixed(1) + "k" : Math.round(v);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function ago(ts) {
+  const m = Math.round((Date.now() / 1000 - ts) / 60);
+  if (m < 1) return "just now"; if (m < 60) return m + " min ago";
+  const h = Math.floor(m / 60); return h < 48 ? h + "h " + (m % 60) + "m ago" : Math.floor(h / 24) + " days ago";
+}
+
+// move value for a market under the current measure
+function mv(r, w) {
+  const d = r.d?.[w]; if (d == null) return null;
+  if (S.measure === "pp") return d;
+  const prev = r.prev?.[w]; if (!prev) return null;
+  return (d / prev) * 100;
+}
+function moveCell(r, w) {
+  const v = mv(r, w);
+  if (v == null) return `<span class="dl" style="color:var(--text-muted)">new</span>`;
+  const a = Math.abs(v), steps = S.measure === "pp" ? PP_STEPS : REL_STEPS;
+  let lvl = -1; steps.forEach((s, i) => { if (a >= s) lvl = i; });
+  const unit = S.measure === "pp" ? "" : "%";
+  const txt = (v > 0 ? "▲ +" : v < 0 ? "▼ " : "· ") + (S.measure === "pp" ? v.toFixed(1) : v.toFixed(0)) + unit;
+  if (lvl < 0) return `<span class="dl" style="color:var(--text-muted)">${txt}</span>`;
+  const rgb = v > 0 ? "var(--up)" : "var(--down)";
+  const fg = lvl === 3 ? "#fff" : "var(--text-primary)";
+  return `<span class="dl" style="background:rgba(${rgb},${ALPHAS[lvl]});color:${fg}">${txt}</span>`;
+}
+function legend() {
+  const steps = S.measure === "pp" ? PP_STEPS.map(s => s + " pts") : REL_STEPS.map(s => s + "%");
+  const sw = rgb => `<span class="sw">${ALPHAS.map(a => `<i style="background:rgba(${rgb},${a})"></i>`).join("")}</span>`;
+  const cs = getComputedStyle(document.documentElement);
+  document.getElementById("legend").innerHTML =
+    `<span>▲ Shortening (price up) ${sw(cs.getPropertyValue("--up"))}</span>` +
+    `<span>▼ Drifting (price down) ${sw(cs.getPropertyValue("--down"))}</span>` +
+    `<span>Shade thresholds: ${steps.join(" · ")}</span>` +
+    `<span>“new” = not enough history yet for that window</span>`;
+}
+
+function sparkSvg(arr, w = 90, h = 22) {
+  const pts = (arr || []).map((v, i) => [i, v]).filter(p => p[1] != null);
+  if (pts.length < 2) return `<svg class="spk" width="${w}" height="${h}"></svg>`;
+  const n = arr.length - 1, ys = pts.map(p => p[1]);
+  let lo = Math.min(...ys), hi = Math.max(...ys); if (hi - lo < 0.5) { const m = (hi + lo) / 2; lo = m - 0.25; hi = m + 0.25; }
+  const X = i => 2 + (i / n) * (w - 4), Y = v => h - 3 - ((v - lo) / (hi - lo)) * (h - 6);
+  const d = pts.map((p, k) => (k ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1)).join("");
+  const last = pts[pts.length - 1], first = pts[0];
+  const col = last[1] > first[1] ? "rgb(var(--up))" : last[1] < first[1] ? "rgb(var(--down))" : "var(--text-muted)";
+  return `<svg class="spk" width="${w}" height="${h}"><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/>` +
+    `<circle cx="${X(last[0])}" cy="${Y(last[1])}" r="2.2" fill="${col}"/></svg>`;
+}
+
+// ---------- filters
+function filtered() {
+  const q = S.q.trim().toLowerCase();
+  return S.data.markets.filter(r =>
+    (S.sport === "All" || r.sport === S.sport) &&
+    (!S.kinds.size || S.kinds.has(r.kind)) &&
+    (!S.hideLong || r.p >= 0.01) &&
+    (!q || (r.name + " " + r.evt + " " + r.t).toLowerCase().includes(q)) &&
+    (!S.moversOnly || Math.abs(mv(r, S.win) ?? 0) >= (S.measure === "pp" ? PP_STEPS[0] : REL_STEPS[0]))
+  );
+}
+
+function renderControls() {
+  document.getElementById("sportSeg").innerHTML = SPORTS.map(s =>
+    `<button class="${S.sport === s ? "on" : ""}" data-s="${s}">${s}</button>`).join("");
+  document.getElementById("kindChips").innerHTML = KINDS.map(k =>
+    `<button class="chip ${S.kinds.has(k) ? "on" : ""}" data-k="${k}">${k === "Award" ? "Awards" : k}</button>`).join("");
+}
+
+function renderMovers() {
+  const rows = filtered();
+  for (const [w, el, n] of [["24", "m24", "m24n"], ["168", "m7", "m7n"]]) {
+    const ms = rows.filter(r => mv(r, w) != null && r.p >= 0.01)
+      .sort((a, b) => Math.abs(mv(b, w)) - Math.abs(mv(a, w))).slice(0, 10);
+    document.getElementById(n).textContent = S.measure === "pp" ? "by probability points" : "by % of price";
+    document.getElementById(el).innerHTML = ms.length ? ms.map(r => {
+      const prev = r.prev[w] / 100;
+      return `<div class="mv" data-t="${esc(r.t)}"><div class="who"><b>${esc(r.name)}</b><i>${esc(r.sport)} · ${esc(r.evt)}</i></div>` +
+        `<div class="path">${am(prev)} → <b style="color:var(--text-primary)">${am(r.p)}</b></div>${moveCell(r, w)}</div>`;
+    }).join("") : `<div class="empty">Not enough history yet for this window. It fills in as hourly snapshots build up (or run the backfill).</div>`;
+  }
+}
+
+const COLS = [
+  { k: "name", label: "Outcome", v: r => r.name.toLowerCase() },
+  { k: "p", label: "Prob", v: r => r.p },
+  { k: "am", label: "American", v: r => r.p },
+  { k: "fair", label: "No-vig", v: r => r.fair ?? -1 },
+  { k: "buy", label: "Buy (w/ fee)", v: r => r.buyfee ?? 2 },
+  { k: "d1", label: "Δ 1h", v: r => mv(r, "1") ?? -999 },
+  { k: "d24", label: "Δ 24h", v: r => mv(r, "24") ?? -999 },
+  { k: "d168", label: "Δ 7d", v: r => mv(r, "168") ?? -999 },
+  { k: "spark", label: "7-day", v: r => 0 },
+  { k: "vol", label: "Vol 24h", v: r => r.vol24 ?? 0 },
+];
+
+function renderBoard() {
+  const rows = filtered();
+  const evs = new Map();
+  for (const r of rows) { const g = r.g || r.ev; if (!evs.has(g)) evs.set(g, []); evs.get(g).push(r); }
+  const gt = r => r.gt || r.evt;
+  const order = [...evs.values()].sort((a, b) =>
+    (SPORT_ORDER[a[0].sport] - SPORT_ORDER[b[0].sport]) || (KIND_ORDER[a[0].kind] - KIND_ORDER[b[0].kind]) ||
+    gt(a[0]).localeCompare(gt(b[0])));
+  if (!order.length) { document.getElementById("board").innerHTML = `<div class="panel empty">No markets match these filters.</div>`; return; }
+  const winKey = { "1": "d1", "24": "d24", "168": "d168" }[S.win];
+  document.getElementById("board").innerHTML = order.map(list => {
+    const e = list[0], gk = e.g || e.ev, srt = S.sort[gk] || { k: S.moversOnly ? winKey : "p", asc: false };
+    const col = COLS.find(c => c.k === srt.k);
+    list.sort((a, b) => { const x = col.v(a), y = col.v(b); const c = x < y ? -1 : x > y ? 1 : 0; return srt.asc ? c : -c; });
+    const book = e.evsum && !e.gt ? `Book ${(e.evsum * 100).toFixed(1)}%` : "";
+    const vol = list.reduce((s, r) => s + (r.vol24 || 0), 0);
+    return `<details class="event" open data-ev="${esc(gk)}"><summary><b>${esc(gt(e))}</b>` +
+      `<span class="tag">${e.sport}</span><span class="tag">${e.kind === "Award" ? "Award" : e.kind}</span>` +
+      `<span class="meta">${list.length} outcomes ${book ? "· " + book : ""} · 24h vol ${fmtVol(vol)}</span></summary>` +
+      `<div class="tbl"><table><thead><tr>${COLS.map(c =>
+        `<th data-ev="${esc(gk)}" data-k="${c.k}" class="${srt.k === c.k ? "sorted" + (srt.asc ? " asc" : "") : ""}">${c.label}</th>`).join("")}</tr></thead><tbody>` +
+      list.map(r => `<tr data-t="${esc(r.t)}">` +
+        `<td class="name" title="${esc(r.name)}">${esc(r.name)}</td>` +
+        `<td class="num">${pct(r.p)}</td>` +
+        `<td class="am">${am(r.p)}</td>` +
+        `<td class="num ${r.fair == null ? "dim" : ""}">${r.fair == null ? "—" : am(r.fair)}</td>` +
+        `<td class="num ${r.buyfee == null ? "dim" : ""}" title="Ask ${r.ask == null ? "—" : Math.round(r.ask * 100) + "¢"} / Bid ${r.bid == null ? "—" : Math.round(r.bid * 100) + "¢"}">${r.buyfee == null ? "—" : am(r.buyfee)}</td>` +
+        `<td>${moveCell(r, "1")}</td><td>${moveCell(r, "24")}</td><td>${moveCell(r, "168")}</td>` +
+        `<td>${sparkSvg(r.spark)}</td>` +
+        `<td class="num dim">${fmtVol(r.vol24)}</td></tr>`).join("") +
+      `</tbody></table></div></details>`;
+  }).join("");
+}
+
+function renderAll() { renderControls(); renderMovers(); legend(); renderBoard(); }
+
+// ---------- detail chart
+async function loadHist(series) {
+  if (S.hist[series] && Date.now() - S.hist[series].at < 10 * 60e3) return S.hist[series].h;
+  const res = await fetch(`data/history/${encodeURIComponent(series)}.json?v=${S.data.updated}`);
+  const h = res.ok ? await res.json() : {};
+  S.hist[series] = { at: Date.now(), h }; return h;
+}
+const RANGES = [["24h", 86400], ["7d", 7 * 86400], ["30d", 30 * 86400], ["All", Infinity]];
+async function openDetail(t) {
+  const r = S.data.markets.find(m => m.t === t); if (!r) return;
+  S.cur = r;
+  document.getElementById("dTitle").textContent = r.name;
+  document.getElementById("dSub").textContent = `${r.sport} · ${r.evt} · ${r.t}`;
+  const st = [
+    ["Prob", pct(r.p)], ["American", am(r.p)], ["No-vig", r.fair == null ? "—" : am(r.fair)],
+    ["Buy w/ fee", r.buyfee == null ? "—" : am(r.buyfee)],
+    ["Bid / Ask", `${r.bid == null ? "—" : Math.round(r.bid * 100)}¢ / ${r.ask == null ? "—" : Math.round(r.ask * 100)}¢`],
+    ["Δ 24h", r.d["24"] == null ? "—" : (r.d["24"] > 0 ? "+" : "") + r.d["24"].toFixed(1) + " pts"],
+    ["Δ 7d", r.d["168"] == null ? "—" : (r.d["168"] > 0 ? "+" : "") + r.d["168"].toFixed(1) + " pts"],
+  ];
+  document.getElementById("dStats").innerHTML = st.map(([a, b]) => `<div>${a}<b>${b}</b></div>`).join("");
+  document.getElementById("dlg").showModal();
+  await drawChart();
+}
+async function drawChart() {
+  const r = S.cur; const h = await loadHist(r.s); const all = (h[r.t] || []);
+  const span = RANGES.find(x => x[0] === S.range)[1];
+  const t0 = S.data.updated - span;
+  const pts = all.filter(p => p[0] >= t0).map(p => ({ x: p[0] * 1000, y: p[1] }));
+  document.getElementById("rangeSeg").innerHTML = RANGES.map(([k]) => `<button class="${S.range === k ? "on" : ""}" data-r="${k}">${k}</button>`).join("");
+  document.getElementById("dNote").textContent = pts.length ? `${pts.length} snapshots · older than 21 days shown daily` : "No history in this range yet";
+  const cs = getComputedStyle(document.documentElement);
+  const ink = cs.getPropertyValue("--text-secondary").trim(), grid = cs.getPropertyValue("--line").trim(), acc = cs.getPropertyValue("--accent").trim();
+  const longSpan = pts.length > 1 && (pts[pts.length - 1].x - pts[0].x) > 3 * 86400e3;
+  if (S.chart) S.chart.destroy();
+  S.chart = new Chart(document.getElementById("dChart"), {
+    type: "line",
+    data: { datasets: [{ data: pts, borderColor: acc, borderWidth: 2, pointRadius: pts.length < 40 ? 3 : 0, pointHoverRadius: 5,
+      pointBackgroundColor: acc, tension: 0.15, fill: false }] },
+    options: {
+      maintainAspectRatio: false, animation: false, parsing: false,
+      interaction: { mode: "index", intersect: false },
+      plugins: { legend: { display: false },
+        tooltip: { callbacks: {
+          title: it => new Date(it[0].parsed.x).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }),
+          label: it => `${it.parsed.y.toFixed(1)}%   ${am(it.parsed.y / 100)}` } } },
+      scales: {
+        x: { type: "linear", min: pts[0]?.x, max: pts[pts.length - 1]?.x, grid: { color: grid }, ticks: { color: ink, maxTicksLimit: 8,
+          callback: v => new Date(v).toLocaleString([], longSpan ? { month: "short", day: "numeric" } : { weekday: "short", hour: "numeric" }) } },
+        y: { grid: { color: grid }, ticks: { color: ink, callback: v => v + "%" }, title: { display: true, text: "Implied probability", color: ink } },
+      },
+    },
+  });
+}
+
+// ---------- events
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-s]"); if (s) { S.sport = s.dataset.s; renderAll(); return; }
+  const k = e.target.closest("[data-k]:not(th)"); if (k) { S.kinds.has(k.dataset.k) ? S.kinds.delete(k.dataset.k) : S.kinds.add(k.dataset.k); renderAll(); return; }
+  const th = e.target.closest("th[data-k]"); if (th) {
+    const cur = S.sort[th.dataset.ev] || { k: "p", asc: false };
+    S.sort[th.dataset.ev] = { k: th.dataset.k, asc: cur.k === th.dataset.k ? !cur.asc : th.dataset.k === "name" };
+    renderBoard(); return;
+  }
+  const rg = e.target.closest("[data-r]"); if (rg) { S.range = rg.dataset.r; drawChart(); return; }
+  const row = e.target.closest("[data-t]"); if (row) { openDetail(row.dataset.t); return; }
+});
+document.getElementById("dClose").onclick = () => document.getElementById("dlg").close();
+document.getElementById("dlg").addEventListener("click", e => { if (e.target.id === "dlg") e.target.close(); });
+document.getElementById("q").oninput = e => { S.q = e.target.value; renderMovers(); renderBoard(); };
+document.getElementById("win").onchange = e => { S.win = e.target.value; renderBoard(); };
+document.getElementById("measure").onchange = e => { S.measure = e.target.value; renderAll(); };
+document.getElementById("hideLong").onchange = e => { S.hideLong = e.target.checked; renderAll(); };
+document.getElementById("moversOnly").onchange = e => { S.moversOnly = e.target.checked; renderAll(); };
+document.getElementById("theme").onclick = () => {
+  const r = document.documentElement, next = r.dataset.theme === "light" ? "dark" : "light";
+  r.dataset.theme = next; try { localStorage.setItem("fb-theme", next); } catch {}
+  renderAll(); if (S.cur && document.getElementById("dlg").open) drawChart();
+};
+try { const t = localStorage.getItem("fb-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}
+
+// ---------- load
+async function load() {
+  try {
+    const res = await fetch(`data/latest.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    S.data = await res.json();
+    S.hist = {};
+    document.getElementById("feeRate").textContent = Math.round((S.data.fee_rate ?? 0.07) * 100);
+    renderAll(); tick();
+  } catch (err) {
+    document.getElementById("updated").textContent = "No data yet. The first hourly run hasn't finished.";
+    document.getElementById("dot").classList.add("stale");
+  }
+}
+function tick() {
+  if (!S.data) return;
+  const age = Date.now() / 1000 - S.data.updated;
+  document.getElementById("updated").textContent =
+    `Updated ${new Date(S.data.updated * 1000).toLocaleString([], { weekday: "short", hour: "numeric", minute: "2-digit" })} (${ago(S.data.updated)}) · ${S.data.markets.length} markets`;
+  document.getElementById("dot").classList.toggle("stale", age > 2 * 3600);
+}
+load();
+setInterval(load, 10 * 60e3);
+setInterval(tick, 60e3);
+</script>
+</body>
+</html>

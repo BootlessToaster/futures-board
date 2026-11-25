@@ -133,13 +133,13 @@ class Kalshi:
             url = base + path
             if params:
                 url += "?" + urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
-            for attempt in range(tries):
+            for attempt in range(tries if self.calls or self.base else 2):
                 try:
                     req = urllib.request.Request(url, headers={
                         "Accept": "application/json",
                         "User-Agent": "kalshi-futures-board/1.0",
                     })
-                    with urllib.request.urlopen(req, timeout=30) as r:
+                    with urllib.request.urlopen(req, timeout=20) as r:
                         body = json.loads(r.read().decode("utf-8"))
                     self.base = base
                     self.calls += 1
@@ -176,7 +176,7 @@ class Kalshi:
 
 SPORT_RULES = {
     "NFL": {
-        "prefixes": ("KXNFL", "KXSB", "KXAFC", "KXNFC"),
+        "prefixes": ("KXNFL", "KXSB", "KXAFC", "KXNFC", "KXTEAMSINSB"),
         "words": ("pro football", "nfl", "super bowl", "afc ", "nfc "),
         "not": ("college", "ncaa", "cfb", "canadian", "cfl", "ufl", "xfl"),
     },
@@ -201,6 +201,8 @@ AWARD_WORDS = ("mvp", "most valuable", "of the year", "rookie", "defensive playe
 
 def classify_sport(ticker, text):
     t = ticker.upper()
+    if t.startswith("KXWNBA") or "women" in text:
+        return None
     for sport, r in SPORT_RULES.items():
         if any(n in text for n in r["not"]):
             continue
@@ -212,7 +214,7 @@ def classify_sport(ticker, text):
 def classify_kind(text):
     if any(w in text for w in AWARD_WORDS):
         return "Award"
-    if "division" in text:
+    if "division" in text or re.search(r"(east|west|north|south) winner", text):
         return "Division"
     if any(w in text for w in ("conference", "afc", "nfc", "eastern", "western")):
         return "Conference"
@@ -255,6 +257,8 @@ def discover_series(api, cfg):
             matched.append({**row, "reason": "include_series"}); continue
         if sport not in sports:
             continue
+        if cfg.get("require_annual", True) and (s.get("frequency") or "").lower() != "annual":
+            continue  # futures/awards are 'annual'; game, prop and weekly series are not
         hit_ex = next((k for k in exc_kw if k in text), None)
         if hit_ex:
             rejected.append({**row, "reason": f"exclude keyword '{hit_ex.strip()}'"}); continue
@@ -424,8 +428,12 @@ def add_moves(rows, histories, now, cfg):
 
 # --------------------------------------------------------------------------- backfill
 
-def backfill(api, rows, days, cfg, now):
-    """Fill history from Kalshi hourly candlesticks for markets currently on the board."""
+def backfill(api, rows, days, cfg, now, budget_s=None):
+    """Fill history from Kalshi hourly candlesticks for markets currently on the board.
+    Skips sub-1% longshots and stops cleanly when the time budget runs out."""
+    t_start = time.time()
+    budget_s = budget_s or cfg.get("backfill_budget_seconds", 900)
+    rows = [r for r in rows if r["p"] >= 0.01]
     max_spread = cfg.get("max_spread_for_mid", 0.10)
     start = now - days * DAY
     by_series = {}
@@ -435,6 +443,9 @@ def backfill(api, rows, days, cfg, now):
     for s, rs in by_series.items():
         path = hist_path(s)
         h = load_json(path, {})
+        if time.time() - t_start > budget_s:
+            print(f"backfill time budget reached after {done} markets; the rest fill in hourly", flush=True)
+            break
         for r in rs:
             # Hourly candles for the last 21 days, daily before that (Kalshi caps candles per call)
             pts = []
@@ -478,7 +489,9 @@ def main():
     api = Kalshi(pause=cfg.get("request_pause_seconds", 0.08))
     now = now_ts()
 
+    t0 = time.time()
     series, rejected = discover_series(api, cfg)
+    print(f"discovery: {len(series)} series matched ({api.calls} calls, {time.time()-t0:.0f}s)", flush=True)
     save_json(os.path.join(DATA, "catalog.json"), {
         "updated": now, "matched": series, "rejected": rejected,
     }, compact=False)
@@ -495,6 +508,7 @@ def main():
         sys.exit(1)
 
     rows = fetch_markets(api, series, cfg)
+    print(f"markets: {len(rows)} open ({api.calls} calls, {time.time()-t0:.0f}s)", flush=True)
     if not rows:
         print("No open markets returned - leaving previous data in place", file=sys.stderr)
         sys.exit(1)

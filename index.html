@@ -89,6 +89,7 @@ td.am { font-family: var(--mono); font-weight: 600; }
 td.dim { color: var(--text-muted); }
 .dl { font-family: var(--mono); font-size: 13px; border-radius: 6px; padding: 2px 6px; display: inline-block; min-width: 64px; text-align: right; }
 .spk { display: block; }
+.thin { font-size: 10px; font-weight: 500; color: var(--text-muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; margin-left: 4px; vertical-align: 1px; }
 
 dialog { border: 1px solid var(--line); border-radius: 14px; background: var(--surface-1); color: var(--text-primary);
   width: min(920px, 96vw); padding: 0; }
@@ -137,7 +138,7 @@ dialog::backdrop { background: rgba(0,0,0,.55); }
   <div id="board"></div>
 
   <div class="note">
-    <b>How to read this.</b> <b>Prob</b> is the Kalshi Yes mid-price (bid/ask midpoint when the spread is ≤10¢, otherwise last trade) and
+    <b>How to read this.</b> <b>Prob</b> is the Kalshi Yes mid-price (bid/ask midpoint when the spread is ≤10¢, otherwise last trade; a sell order with no bid is ignored) and
     <b>American</b> is that probability converted to odds. <b>No-vig</b> normalizes every outcome in the event so they sum to 100%,
     which is the number to hold against a sportsbook's no-vig line. <b>Buy</b> is what it actually costs to buy Yes now: the ask plus
     Kalshi's estimated taker fee (<span id="feeRate">7</span>% × P × (1−P)), shown as American odds. Moves are in probability points,
@@ -184,6 +185,9 @@ function ago(ts) {
   const h = Math.floor(m / 60); return h < 48 ? h + "h " + (m % 60) + "m ago" : Math.floor(h / 24) + " days ago";
 }
 
+// thin = no bid, or spread wider than 10c: price is not reliable, so moves are not ranked or colored
+const isThin = r => r.thin ?? !(r.bid > 0 && r.ask > 0 && r.ask < 1 && r.ask - r.bid <= 0.10);
+
 // move value for a market under the current measure
 function mv(r, w) {
   const d = r.d?.[w]; if (d == null) return null;
@@ -198,7 +202,7 @@ function moveCell(r, w) {
   let lvl = -1; steps.forEach((s, i) => { if (a >= s) lvl = i; });
   const unit = S.measure === "pp" ? "" : "%";
   const txt = (v > 0 ? "▲ +" : v < 0 ? "▼ " : "· ") + (S.measure === "pp" ? v.toFixed(1) : v.toFixed(0)) + unit;
-  if (lvl < 0) return `<span class="dl" style="color:var(--text-muted)">${txt}</span>`;
+  if (lvl < 0 || isThin(r)) return `<span class="dl" style="color:var(--text-muted)" ${isThin(r) ? 'title="Thin market: no bid or spread over 10¢"' : ""}>${txt}</span>`;
   const rgb = v > 0 ? "var(--up)" : "var(--down)";
   const fg = lvl === 3 ? "#fff" : "var(--text-primary)";
   return `<span class="dl" style="background:rgba(${rgb},${ALPHAS[lvl]});color:${fg}">${txt}</span>`;
@@ -211,7 +215,8 @@ function legend() {
     `<span>▲ Shortening (price up) ${sw(cs.getPropertyValue("--up"))}</span>` +
     `<span>▼ Drifting (price down) ${sw(cs.getPropertyValue("--down"))}</span>` +
     `<span>Shade thresholds: ${steps.join(" · ")}</span>` +
-    `<span>“new” = not enough history yet for that window</span>`;
+    `<span>“new” = not enough history yet for that window</span>` +
+    `<span><span class="thin">thin</span> = no bid or spread over 10¢; moves shown gray and left out of the movers lists</span>`;
 }
 
 function sparkSvg(arr, w = 90, h = 22) {
@@ -235,7 +240,7 @@ function filtered() {
     (!S.kinds.size || S.kinds.has(r.kind)) &&
     (!S.hideLong || r.p >= 0.01) &&
     (!q || (r.name + " " + r.evt + " " + r.t).toLowerCase().includes(q)) &&
-    (!S.moversOnly || Math.abs(mv(r, S.win) ?? 0) >= (S.measure === "pp" ? PP_STEPS[0] : REL_STEPS[0]))
+    (!S.moversOnly || !isThin(r) && Math.abs(mv(r, S.win) ?? 0) >= (S.measure === "pp" ? PP_STEPS[0] : REL_STEPS[0]))
   );
 }
 
@@ -249,7 +254,7 @@ function renderControls() {
 function renderMovers() {
   const rows = filtered();
   for (const [w, el, n] of [["24", "m24", "m24n"], ["168", "m7", "m7n"]]) {
-    const ms = rows.filter(r => mv(r, w) != null && r.p >= 0.01)
+    const ms = rows.filter(r => mv(r, w) != null && r.p >= 0.01 && !isThin(r))
       .sort((a, b) => Math.abs(mv(b, w)) - Math.abs(mv(a, w))).slice(0, 10);
     document.getElementById(n).textContent = S.measure === "pp" ? "by probability points" : "by % of price";
     document.getElementById(el).innerHTML = ms.length ? ms.map(r => {
@@ -295,7 +300,7 @@ function renderBoard() {
       `<div class="tbl"><table><thead><tr>${COLS.map(c =>
         `<th data-ev="${esc(gk)}" data-k="${c.k}" class="${srt.k === c.k ? "sorted" + (srt.asc ? " asc" : "") : ""}">${c.label}</th>`).join("")}</tr></thead><tbody>` +
       list.map(r => `<tr data-t="${esc(r.t)}">` +
-        `<td class="name" title="${esc(r.name)}">${esc(r.name)}</td>` +
+        `<td class="name" title="${esc(r.name)}">${esc(r.name)}${isThin(r) ? ' <span class="thin">thin</span>' : ""}</td>` +
         `<td class="num">${pct(r.p)}</td>` +
         `<td class="am">${am(r.p)}</td>` +
         `<td class="num ${r.fair == null ? "dim" : ""}">${r.fair == null ? "—" : am(r.fair)}</td>` +

@@ -22,10 +22,10 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -56,10 +56,25 @@ jobs:
           fi
 
       - name: Package site
-        uses: actions/upload-pages-artifact@v3
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r data _site/
+
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Publish dashboard
         id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before retry
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 45
+
+      - name: Publish dashboard (retry)
+        id: deploy2
+        if: steps.deploy.outcome == 'failure'
         uses: actions/deploy-pages@v4

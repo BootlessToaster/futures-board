@@ -101,21 +101,28 @@ def num(m, key):
 
 
 def mid_price(bid, ask, last, max_spread):
-    """Fair-value price for charting: bid/ask mid when the book is tight, else last trade."""
+    """Price for charting.
+    - Tight two-sided book: bid/ask midpoint.
+    - Otherwise: last trade, kept inside the book where a book exists.
+    - A lone ask with no bid and no trades is not evidence of price (stale offers sit
+      at 90c+ on dead longshots), so it returns None and the point is skipped."""
     bid = bid if bid and bid > 0 else None
     ask = ask if ask and ask < 1 else None
     if bid is not None and ask is not None and ask - bid <= max_spread:
         return (bid + ask) / 2
     if last and 0 < last < 1:
-        # clamp last trade inside the current book if a book exists
         if bid is not None and last < bid:
             return bid
         if ask is not None and last > ask:
-            return ask
+            return ask if bid is not None else last
         return last
     if bid is not None and ask is not None:
         return (bid + ask) / 2
-    return bid if bid is not None else ask
+    return bid  # bid-only book; ask-only -> None
+
+
+def is_thin(bid, ask, max_spread):
+    return not (bid and bid > 0 and ask and ask < 1 and ask - bid <= max_spread)
 
 
 # --------------------------------------------------------------------------- HTTP
@@ -323,6 +330,7 @@ def fetch_markets(api, series, cfg):
                     "ask": round(ask, 4) if ask else None,
                     "last": round(last, 4) if last else None,
                     "p": round(mid, 4),
+                    "thin": is_thin(bid, ask, max_spread),
                     "buyfee": round(buy + fee * buy * (1 - buy), 4) if buy else None,
                     "vol24": num(m, "volume_24h"),
                     "oi": num(m, "open_interest"),
@@ -433,7 +441,11 @@ def backfill(api, rows, days, cfg, now, budget_s=None):
     Skips sub-1% longshots and stops cleanly when the time budget runs out."""
     t_start = time.time()
     budget_s = budget_s or cfg.get("backfill_budget_seconds", 900)
-    rows = [r for r in rows if r["p"] >= 0.01]
+    keep = {hist_path(r["s"]) for r in rows}
+    for f in os.listdir(HIST):
+        fp = os.path.join(HIST, f)
+        if f.endswith(".json") and fp not in keep:
+            os.remove(fp)  # series no longer on the board
     max_spread = cfg.get("max_spread_for_mid", 0.10)
     start = now - days * DAY
     by_series = {}
@@ -466,11 +478,8 @@ def backfill(api, rows, days, cfg, now, budget_s=None):
                     mid = mid_price(bid, ask, last, max_spread)
                     if ts and mid:
                         pts.append([int(ts), round(mid * 100, 2)])
-            existing = h.get(r["t"], [])
-            # keep live snapshots; candles fill gaps only
-            have = [p[0] for p in existing]
-            fill = [p for p in pts if all(abs(p[0] - t) >= 40 * 60 for t in have)]
-            h[r["t"]] = compact(sorted(existing + fill), now, cfg.get("history_hourly_days", 21))
+            # Rebuild this market's history from Kalshi's own candles (replaces any older points)
+            h[r["t"]] = compact(sorted(pts), now, cfg.get("history_hourly_days", 21))
             done += 1
         save_json(path, h)
     print(f"backfilled {done} markets")

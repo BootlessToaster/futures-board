@@ -25,9 +25,11 @@ jobs:
     timeout-minutes: 30
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy2.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
 
       - uses: actions/setup-python@v5
         with:
@@ -43,23 +45,53 @@ jobs:
           fi
 
       - name: Save snapshot to repo
+        id: save
+        continue-on-error: true
         run: |
           git config user.name  "futures-board-bot"
           git config user.email "futures-board-bot@users.noreply.github.com"
-          git add data
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "snapshot $(date -u +'%Y-%m-%d %H:%M')Z" -q
-            git pull --rebase -q || true
-            git push -q
-          fi
+          git add -A data
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -q -m "snapshot $(date -u +'%Y-%m-%d %H:%M')Z"
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            echo "::warning::push attempt $i failed; syncing with main and retrying"
+            git fetch origin main
+            git rebase -X theirs origin/main || { git rebase --abort; git reset --soft origin/main; git commit -q -m "snapshot $(date -u +'%Y-%m-%d %H:%M')Z"; }
+            sleep $((i * 5))
+          done
+          git status
+          exit 1
 
       - name: Package site
-        uses: actions/upload-pages-artifact@v3
+        if: always() && steps.save.outcome != 'skipped'
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r data _site/
+
+      - uses: actions/upload-pages-artifact@v3
+        if: always() && steps.save.outcome != 'skipped'
         with:
-          path: .
+          path: _site
 
       - name: Publish dashboard
         id: deploy
+        if: always() && steps.save.outcome != 'skipped'
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+
+      - name: Wait before retry
+        if: always() && steps.deploy.outcome == 'failure'
+        run: sleep 45
+
+      - name: Publish dashboard (retry)
+        id: deploy2
+        if: always() && steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      - name: Flag a failed save
+        if: always() && steps.save.outcome == 'failure'
+        run: |
+          echo "::error::The dashboard was published, but this snapshot could not be saved to the repo. See the 'Save snapshot to repo' step log."
+          exit 1

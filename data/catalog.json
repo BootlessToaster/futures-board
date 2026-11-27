@@ -1,6 +1,20 @@
 {
- "updated": 1795809702,
+ "updated": 1795813140,
  "matched": [
+  {
+   "ticker": "KXNBASOUTHWEST",
+   "title": "Pro Basketball Southwest Division Winner",
+   "sport": "NBA",
+   "kind": "Division",
+   "reason": "include_series"
+  },
+  {
+   "ticker": "KXNFLCPOTY",
+   "title": "AP Pro Football Comeback Player of the Year",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
   {
    "ticker": "KXNFLPLAYOFF",
    "title": "Pro Football Playoff Qualifiers",
@@ -9,32 +23,11 @@
    "reason": "keyword 'playoff'"
   },
   {
-   "ticker": "KXNFLAFCWEST",
-   "title": "American Football Conference West Winner",
-   "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLMVP",
-   "title": "AP Pro Football Regular Season MVP",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'mvp'"
-  },
-  {
-   "ticker": "KXNHLCALDER",
-   "title": "NHL Calder Memorial Trophy",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'trophy'"
-  },
-  {
-   "ticker": "KXNFLNFCWEST",
-   "title": "National Football Conference West Winner",
-   "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
+   "ticker": "KXNBAECFQUAL",
+   "title": "NBA Eastern Conference Finals Qualifiers",
+   "sport": "NBA",
+   "kind": "Conference",
+   "reason": "keyword 'finals'"
   },
   {
    "ticker": "KXNFLAFCEAST",
@@ -44,18 +37,102 @@
    "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNBACOY",
-   "title": "NBA Coach of the Year",
-   "sport": "NBA",
+   "ticker": "KXNFLNFCCHAMP",
+   "title": "National Football Conference Champion",
+   "sport": "NFL",
+   "kind": "Conference",
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNFLDROTY",
+   "title": "AP Pro Football Defensive Rookie of the Year",
+   "sport": "NFL",
    "kind": "Award",
    "reason": "keyword 'of the year'"
   },
   {
-   "ticker": "KXNHLWEST",
-   "title": "Western Conference Champion",
+   "ticker": "KXNHLRICHARD",
+   "title": "NHL Maurice \"Rocket\" Richard Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNFLOROTY",
+   "title": "AP Pro Football Offensive Rookie of the Year",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
+  {
+   "ticker": "KXNHLEAST",
+   "title": "Eastern Conference Championship",
    "sport": "NHL",
    "kind": "Conference",
    "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNFLDPOY",
+   "title": "NFL Defensive Player of the Year",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
+  {
+   "ticker": "KXNFLAFCNORTH",
+   "title": "American Football Conference North Winner",
+   "sport": "NFL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNHLADAMS",
+   "title": "NHL Jack Adams Award",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'award'"
+  },
+  {
+   "ticker": "KXNFLOPOY",
+   "title": "NFL Offensive Player of the Year",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
+  {
+   "ticker": "KXNBAFINMVP",
+   "title": "NBA Finals MVP",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'finals'"
+  },
+  {
+   "ticker": "KXNHLVEZINA",
+   "title": "NHL Vezina Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNHLPRES",
+   "title": "NHL President's Trophy Winner",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNBAPLAYOFF",
+   "title": "Pro Basketball Playoff Qualifier",
+   "sport": "NBA",
+   "kind": "Playoffs",
+   "reason": "keyword 'playoff'"
+  },
+  {
+   "ticker": "KXNBASIXTH",
+   "title": "NBA Sixth Man of the Year",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
   },
   {
    "ticker": "KXNBAWEST",
@@ -65,8 +142,22 @@
    "reason": "keyword 'champion'"
   },
   {
-   "ticker": "KXNFLNFCCHAMP",
-   "title": "National Football Conference Champion",
+   "ticker": "KXNBAROY",
+   "title": "NBA Rookie of the Year",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
+  {
+   "ticker": "KXNBAEAST1SEED",
+   "title": "NBA Eastern Conference 1 Seed",
+   "sport": "NBA",
+   "kind": "Conference",
+   "reason": "keyword 'conference'"
+  },
+  {
+   "ticker": "KXNFLAFCCHAMP",
+   "title": "American Football Conference Champion",
    "sport": "NFL",
    "kind": "Conference",
    "reason": "keyword 'champion'"
@@ -79,53 +170,18 @@
    "reason": "keyword 'of the year'"
   },
   {
-   "ticker": "KXNHLPRES",
-   "title": "NHL President's Trophy Winner",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNBAROY",
-   "title": "NBA Rookie of the Year",
+   "ticker": "KXNBAEAST",
+   "title": "Pro Basketball Eastern Conference Champion",
    "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNBASOUTHEAST",
-   "title": "Pro Basketball Southeast Division Winner",
-   "sport": "NBA",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLOROY",
-   "title": "NFL Offensive Rookie of the Y ear",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'rookie'"
-  },
-  {
-   "ticker": "KXNBAPLAYOFF",
-   "title": "Pro Basketball Playoff Qualifier",
-   "sport": "NBA",
-   "kind": "Playoffs",
-   "reason": "keyword 'playoff'"
-  },
-  {
-   "ticker": "KXNFLSBMVP",
-   "title": "Pro Football Championship MVP",
-   "sport": "NFL",
-   "kind": "Award",
+   "kind": "Conference",
    "reason": "keyword 'champion'"
   },
   {
-   "ticker": "KXNHLRICHARD",
-   "title": "NHL Maurice \"Rocket\" Richard Trophy",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'trophy'"
+   "ticker": "KXNBAWCFQUAL",
+   "title": "NBA Western Conference Finals Qualifiers",
+   "sport": "NBA",
+   "kind": "Conference",
+   "reason": "keyword 'finals'"
   },
   {
    "ticker": "KXSB",
@@ -135,20 +191,6 @@
    "reason": "keyword 'super bowl'"
   },
   {
-   "ticker": "KXNFLNFCSOUTH",
-   "title": "National Football Conference South Winner",
-   "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLAFCSOUTH",
-   "title": "American Football Conference South Winner",
-   "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
    "ticker": "KXNFLOPOTY",
    "title": "AP Pro Football Offensive Player Of The Year",
    "sport": "NFL",
@@ -156,32 +198,116 @@
    "reason": "keyword 'of the year'"
   },
   {
-   "ticker": "KXNFLOPOY",
-   "title": "NFL Offensive Player of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
+   "ticker": "KXNBAPACIFIC",
+   "title": "Pro Basketball Pacific Division Winner",
+   "sport": "NBA",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNHLPACIFIC",
-   "title": "NHL Pacific Division Winner",
+   "ticker": "KXNHLCENTRAL",
+   "title": "NHL Central Division Winner",
    "sport": "NHL",
    "kind": "Division",
    "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNBAEAST1SEED",
-   "title": "NBA Eastern Conference 1 Seed",
+   "ticker": "KXNBAATLANTIC",
+   "title": "Pro Basketball Atlantic Division Winner",
    "sport": "NBA",
-   "kind": "Conference",
-   "reason": "keyword 'conference'"
+   "kind": "Division",
+   "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNFLDPOTY",
-   "title": "AP Pro Football Defensive Player Of The Year",
+   "ticker": "KXNFLNFCNORTH",
+   "title": "National Football Conference North Winner",
+   "sport": "NFL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXAFC",
+   "title": "AFC Championship",
+   "sport": "NFL",
+   "kind": "Conference",
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNFLNFCSOUTH",
+   "title": "National Football Conference South Winner",
+   "sport": "NFL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNFLSBMVPDEF",
+   "title": "Defensive Player Championship MVP",
    "sport": "NFL",
    "kind": "Award",
-   "reason": "keyword 'of the year'"
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNBA",
+   "title": "Pro Basketball Champion",
+   "sport": "NBA",
+   "kind": "Champion",
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNFLOROY",
+   "title": "NFL Offensive Rookie of the Y ear",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'rookie'"
+  },
+  {
+   "ticker": "KXNBASOUTHEAST",
+   "title": "Pro Basketball Southeast Division Winner",
+   "sport": "NBA",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNHLHART",
+   "title": "NHL Hart Memorial Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNFLMVP",
+   "title": "AP Pro Football Regular Season MVP",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'mvp'"
+  },
+  {
+   "ticker": "KXNHLROSS",
+   "title": "NHL Art Ross Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNFC",
+   "title": "NFC Championship",
+   "sport": "NFL",
+   "kind": "Conference",
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNHLCALDER",
+   "title": "NHL Calder Memorial Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNHLATLANTIC",
+   "title": "NHL Atlantic Division Winner",
+   "sport": "NHL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
   },
   {
    "ticker": "KXNHLPLAYOFF",
@@ -191,22 +317,57 @@
    "reason": "keyword 'playoff'"
   },
   {
-   "ticker": "KXNBAFINMVP",
-   "title": "NBA Finals MVP",
+   "ticker": "KXNBANORTHWEST",
+   "title": "Pro Basketball Northwest Division Winner",
    "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'finals'"
+   "kind": "Division",
+   "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNBAECFQUAL",
-   "title": "NBA Eastern Conference Finals Qualifiers",
-   "sport": "NBA",
+   "ticker": "KXNHLPACIFIC",
+   "title": "NHL Pacific Division Winner",
+   "sport": "NHL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNHLWEST",
+   "title": "Western Conference Champion",
+   "sport": "NHL",
    "kind": "Conference",
-   "reason": "keyword 'finals'"
+   "reason": "keyword 'champion'"
   },
   {
-   "ticker": "KXNFLOROTY",
-   "title": "AP Pro Football Offensive Rookie of the Year",
+   "ticker": "KXNFLAFCWEST",
+   "title": "American Football Conference West Winner",
+   "sport": "NFL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNFLSBMVP",
+   "title": "Pro Football Championship MVP",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "keyword 'champion'"
+  },
+  {
+   "ticker": "KXNFLAFCSOUTH",
+   "title": "American Football Conference South Winner",
+   "sport": "NFL",
+   "kind": "Division",
+   "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNHLNORRIS",
+   "title": "NHL James Norris Memorial Trophy",
+   "sport": "NHL",
+   "kind": "Award",
+   "reason": "keyword 'trophy'"
+  },
+  {
+   "ticker": "KXNFLCOACH",
+   "title": "NFL Coach of the Year",
    "sport": "NFL",
    "kind": "Award",
    "reason": "keyword 'of the year'"
@@ -219,11 +380,25 @@
    "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNFLNFCEAST",
-   "title": "National Football Conference East Winner",
+   "ticker": "KXNBACLUTCH",
+   "title": "NBA Clutch Player of the Year",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
+  },
+  {
+   "ticker": "KXNFLNFCWEST",
+   "title": "National Football Conference West Winner",
    "sport": "NFL",
    "kind": "Division",
    "reason": "keyword 'winner'"
+  },
+  {
+   "ticker": "KXNBACOY",
+   "title": "NBA Coach of the Year",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'of the year'"
   },
   {
    "ticker": "KXNHLMETROPOLITAN",
@@ -233,111 +408,6 @@
    "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNFLSBMVPQB",
-   "title": "Non QB Championship MVP",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXNFLCPOTY",
-   "title": "AP Pro Football Comeback Player of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNBAMIMP",
-   "title": "NBA Most Improved Player",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'most improved'"
-  },
-  {
-   "ticker": "KXNBANORTHWEST",
-   "title": "Pro Basketball Northwest Division Winner",
-   "sport": "NBA",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLAFCNORTH",
-   "title": "American Football Conference North Winner",
-   "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNBAWEST1SEED",
-   "title": "NBA Western Conference 1 Seed",
-   "sport": "NBA",
-   "kind": "Conference",
-   "reason": "keyword 'conference'"
-  },
-  {
-   "ticker": "KXNHLEAST",
-   "title": "Eastern Conference Championship",
-   "sport": "NHL",
-   "kind": "Conference",
-   "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXNHLHART",
-   "title": "NHL Hart Memorial Trophy",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'trophy'"
-  },
-  {
-   "ticker": "KXNBA",
-   "title": "Pro Basketball Champion",
-   "sport": "NBA",
-   "kind": "Champion",
-   "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXAFC",
-   "title": "AFC Championship",
-   "sport": "NFL",
-   "kind": "Conference",
-   "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXNFC",
-   "title": "NFC Championship",
-   "sport": "NFL",
-   "kind": "Conference",
-   "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXNBASIXTH",
-   "title": "NBA Sixth Man of the Year",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNBAMVP",
-   "title": "NBA MVP",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'mvp'"
-  },
-  {
-   "ticker": "KXNFLDPOY",
-   "title": "NFL Defensive Player of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNFLSBMVPDEF",
-   "title": "Defensive Player Championship MVP",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'champion'"
-  },
-  {
    "ticker": "KXNHL",
    "title": "Stanley Cup",
    "sport": "NHL",
@@ -345,81 +415,11 @@
    "reason": "keyword 'stanley cup'"
   },
   {
-   "ticker": "KXNFLNFCNORTH",
-   "title": "National Football Conference North Winner",
+   "ticker": "KXNFLSBMVPQB",
+   "title": "Non QB Championship MVP",
    "sport": "NFL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNBASOUTHWEST",
-   "title": "Pro Basketball Southwest Division Winner",
-   "sport": "NBA",
-   "kind": "Division",
-   "reason": "include_series"
-  },
-  {
-   "ticker": "KXNBAWCFQUAL",
-   "title": "NBA Western Conference Finals Qualifiers",
-   "sport": "NBA",
-   "kind": "Conference",
-   "reason": "keyword 'finals'"
-  },
-  {
-   "ticker": "KXNBAPACIFIC",
-   "title": "Pro Basketball Pacific Division Winner",
-   "sport": "NBA",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLAFCCHAMP",
-   "title": "American Football Conference Champion",
-   "sport": "NFL",
-   "kind": "Conference",
+   "kind": "Award",
    "reason": "keyword 'champion'"
-  },
-  {
-   "ticker": "KXNHLVEZINA",
-   "title": "NHL Vezina Trophy",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'trophy'"
-  },
-  {
-   "ticker": "KXNFLDROTY",
-   "title": "AP Pro Football Defensive Rookie of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNHLMVP",
-   "title": "NHL Hart Memorial Trophy Winner",
-   "sport": "NHL",
-   "kind": "Award",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNHLATLANTIC",
-   "title": "NHL Atlantic Division Winner",
-   "sport": "NHL",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
-  },
-  {
-   "ticker": "KXNFLCOACH",
-   "title": "NFL Coach of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNBAATLANTIC",
-   "title": "Pro Basketball Atlantic Division Winner",
-   "sport": "NBA",
-   "kind": "Division",
-   "reason": "keyword 'winner'"
   },
   {
    "ticker": "KXNBADPOY",
@@ -429,454 +429,62 @@
    "reason": "keyword 'of the year'"
   },
   {
-   "ticker": "KXNBACLUTCH",
-   "title": "NBA Clutch Player of the Year",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "keyword 'of the year'"
-  },
-  {
-   "ticker": "KXNBAEAST",
-   "title": "Pro Basketball Eastern Conference Champion",
+   "ticker": "KXNBAWEST1SEED",
+   "title": "NBA Western Conference 1 Seed",
    "sport": "NBA",
    "kind": "Conference",
-   "reason": "keyword 'champion'"
+   "reason": "keyword 'conference'"
   },
   {
-   "ticker": "KXNHLCENTRAL",
-   "title": "NHL Central Division Winner",
-   "sport": "NHL",
+   "ticker": "KXNBAMIMP",
+   "title": "NBA Most Improved Player",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "keyword 'most improved'"
+  },
+  {
+   "ticker": "KXNFLNFCEAST",
+   "title": "National Football Conference East Winner",
+   "sport": "NFL",
    "kind": "Division",
    "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNHLADAMS",
-   "title": "NHL Jack Adams Award",
-   "sport": "NHL",
+   "ticker": "KXNBAMVP",
+   "title": "NBA MVP",
+   "sport": "NBA",
    "kind": "Award",
-   "reason": "keyword 'award'"
+   "reason": "keyword 'mvp'"
   },
   {
-   "ticker": "KXNHLROSS",
-   "title": "NHL Art Ross Trophy",
+   "ticker": "KXNHLMVP",
+   "title": "NHL Hart Memorial Trophy Winner",
    "sport": "NHL",
    "kind": "Award",
-   "reason": "keyword 'trophy'"
+   "reason": "keyword 'winner'"
   },
   {
-   "ticker": "KXNHLNORRIS",
-   "title": "NHL James Norris Memorial Trophy",
-   "sport": "NHL",
+   "ticker": "KXNFLDPOTY",
+   "title": "AP Pro Football Defensive Player Of The Year",
+   "sport": "NFL",
    "kind": "Award",
-   "reason": "keyword 'trophy'"
+   "reason": "keyword 'of the year'"
   }
  ],
  "rejected": [
   {
-   "ticker": "KXNFLWINS-TB",
-   "title": "Pro football wins Tampa Bay",
+   "ticker": "KXNFLEXACTWINSSEA",
+   "title": "Pro football exact wins Seattle",
    "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'wins'"
+   "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXNBADRAFT1",
-   "title": "NBA Draft First Pick",
+   "ticker": "KXNBADRAFTTOP5",
+   "title": "NBA Draft Top 5 Pick",
    "sport": "NBA",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSPIT",
-   "title": "Pro football exact wins Pittsburgh",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-TEN",
-   "title": "Pro football wins Tennessee",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBADRAFT6",
-   "title": "NBA Draft Sixth Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSSF",
-   "title": "Pro football exact wins San Francisco",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNBAFINALSEXACT",
-   "title": "Pro Basketball Championship Series Score",
-   "sport": "NBA",
-   "kind": "Champion",
-   "reason": "exclude keyword 'series score'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSLA",
-   "title": "Pro football exact wins Los Angeles R",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLFFH2HSEASON",
-   "title": "Season Fantasy Football Head-to-Head",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'fantasy'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSHOU",
-   "title": "Pro football exact wins Houston",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-MIN",
-   "title": "Pro football wins Minnesota",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLWINS-CHI",
-   "title": "Pro football wins Chicago",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBADRAFTTOP25",
-   "title": "NBA Draft Top 25 Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-KC",
-   "title": "Pro football wins Kansas City",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLDRAFTWR",
-   "title": "Pro Football Wide Receiver Drafted ",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSBUF",
-   "title": "Pro football exact wins Buffalo",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-JAC",
-   "title": "Pro football wins Jacksonville",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLDRAFTEDGE",
-   "title": "Pro Football Edge Drafted",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLDRAFTTOP",
-   "title": "Pro Football Top Draft",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSPHI",
-   "title": "Pro football exact wins Philadephia",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXLEADERNFLRUSHYDS",
-   "title": "NFL leader rushing yards",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNFLASSCOACH",
-   "title": "NFL Assistant Coach of the Year",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "exclude keyword 'assistant coach'"
-  },
-  {
-   "ticker": "KXNFLDRAFT1",
-   "title": "NFL Draft First Pick",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-SEA",
-   "title": "Pro football wins Seattle",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSMIN",
-   "title": "Pro football exact wins Minnesota",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSBAL",
-   "title": "Pro football exact wins Baltimore",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLLASTPICKPOS",
-   "title": "NFL Last Pick of the Draft Position",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXLEADERNBAAST",
-   "title": "NBA APG Leader",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNBATOP3",
-   "title": "Pro Basketball Draft Lottery Top 3",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNBA1STTEAM",
-   "title": "All-NBA 1st Team",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword '1st team'"
-  },
-  {
-   "ticker": "KXCOACHOUTNFLFIRST",
-   "title": "First NFL Coach Out",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'coach out'"
-  },
-  {
-   "ticker": "KXNFLWINS-LA",
-   "title": "Pro football wins Los Angeles R",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLWINS-HOU",
-   "title": "Pro football wins Houston",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSLAC",
-   "title": "Pro football exact wins Los Angeles C",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNBAALLSTARMVP",
-   "title": "NBA All-Star Game MVP",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "exclude keyword 'game'"
-  },
-  {
-   "ticker": "KXNFLDRAFTLB",
-   "title": "Pro Football Linebacker Drafted",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-DEN",
-   "title": "Pro football wins Denver",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLWINS-LAC",
-   "title": "Pro football wins Los Angeles C",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLFIRSTPICK",
-   "title": "First Pick in NFL Draft",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXLEADERNFLPYDS",
-   "title": "NFL leader passing yards",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNBADRAFTTOP",
-   "title": "Pro Basketball Top Draft",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLDRAFTDB",
-   "title": "Pro Football Defensive Back Drafted",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-BAL",
-   "title": "Pro football wins Baltimore",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXLEADERNFLRTDS",
-   "title": "NFL leader receiving TDs",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSNYG",
-   "title": "Pro football exact wins New York G",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXRECORDNBABEST",
-   "title": "Best Pro Basketball Record",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "no futures/award keyword"
-  },
-  {
-   "ticker": "KXNFLALLROOK",
-   "title": "NFL All Rookie Team",
-   "sport": "NFL",
-   "kind": "Award",
-   "reason": "exclude keyword 'all rookie'"
-  },
-  {
-   "ticker": "KXNBAALLSTARGAME",
-   "title": "NBA All-Star Game Winner",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'game'"
-  },
-  {
-   "ticker": "KXNFLWINS-CLE",
-   "title": "Pro football wins Cleveland",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLWINS-PIT",
-   "title": "Pro football wins Pittsburgh",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSCAR",
-   "title": "Pro football exact wins Carolina",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSLV",
-   "title": "Pro football exact wins Las Vegas",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLDRAFTDT",
-   "title": "Pro Football Defensive Tackle Drafted",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSARI",
-   "title": "Pro football exact wins Arizona",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-NYJ",
-   "title": "Pro football wins New York J",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSATL",
-   "title": "Pro football exact wins Atlanta",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXTEAMSINSB",
-   "title": "Teams in Super Bowl",
-   "sport": "NFL",
-   "kind": "Champion",
-   "reason": "exclude keyword 'teams in'"
-  },
-  {
-   "ticker": "KXNBAPLAYIN",
-   "title": "Which Team Will Make the Play-In Tournament",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'play-in'"
   },
   {
    "ticker": "KXNFLEXACTWINSTEN",
@@ -886,163 +494,30 @@
    "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXTEAMSINSC",
-   "title": "Teams in Stanley Cup",
-   "sport": "NHL",
-   "kind": "Champion",
-   "reason": "exclude keyword 'teams in'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSKC",
-   "title": "Pro football exact wins Kansas City",
+   "ticker": "KXLEADERNFLPINT",
+   "title": "Pro Football Pass INT ",
    "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'exact'"
+   "reason": "no futures/award keyword"
   },
   {
-   "ticker": "KXNFLWINS-PHI",
-   "title": "Pro football wins Philadelphia",
+   "ticker": "KXNFLWINS-NE",
+   "title": "Pro football wins New England",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXNBASLAMDUNK",
-   "title": "NBA Slam Dunk Contest Winner",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'slam dunk'"
-  },
-  {
-   "ticker": "KXNBAROOKIEAS",
-   "title": "NBA Rookies to Be an All-Star",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "exclude keyword 'all-star'"
-  },
-  {
-   "ticker": "KXNBA2NDTEAM",
-   "title": "All-NBA 2nd Team",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword '2nd team'"
-  },
-  {
-   "ticker": "KXNFLWINS-BUF",
-   "title": "Pro football wins Buffalo",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXLEADERNFLINT",
-   "title": "NFL leader interceptions",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNBA1STTEAMDEF",
-   "title": "NBA All-Defensive 1st Team",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword '1st team'"
-  },
-  {
-   "ticker": "KXLEADERNBABLK",
-   "title": "NBA BPG Leader",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSCIN",
-   "title": "Pro football exact wins Cincinnati",
+   "ticker": "KXNFLEXACTWINSDAL",
+   "title": "Pro football exact wins Dallas",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXNFLEXACTWINSNE",
-   "title": "Pro football exact wins New England",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSSEA",
-   "title": "Pro football exact wins Seattle",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-NO",
-   "title": "Pro football wins New Orleans",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBACUPMVP",
-   "title": "NBA Cup Tournament MVP",
+   "ticker": "KXLEADERNBASTL",
+   "title": "NBA SPG Leader",
    "sport": "NBA",
-   "kind": "Award",
-   "reason": "exclude keyword 'cup tournament'"
-  },
-  {
-   "ticker": "KXNFLWINS-CIN",
-   "title": "Pro football wins Cincinnati",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNFLDRAFT1ST",
-   "title": "Make the 1st pick in NFL Draft",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXSBMENTION",
-   "title": "SB mention",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'mention'"
-  },
-  {
-   "ticker": "KXNFLWINS-DET",
-   "title": "Pro football wins Detroit",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXLEADERNFLRUSHTDS",
-   "title": "NFL leader rushing TDs",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSWAS",
-   "title": "Pro football exact wins Washington",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNHL1STTEAM",
-   "title": "All NHL First Team",
-   "sport": "NHL",
-   "kind": "Other",
-   "reason": "exclude keyword 'all nhl'"
-  },
-  {
-   "ticker": "KXLEADERNFLSACKS",
-   "title": "NFL Sacks Leader",
-   "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'leader'"
   },
@@ -1054,130 +529,18 @@
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXNBASPORTSMANSHIP",
-   "title": "NBA Sportsmanship Award",
-   "sport": "NBA",
-   "kind": "Award",
-   "reason": "exclude keyword 'sportsmanship'"
-  },
-  {
-   "ticker": "KXFIRSTPICKNBA",
-   "title": "NBA first pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'pick'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSNO",
-   "title": "Pro football exact wins New Orleans",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-NYG",
-   "title": "Pro football wins New York G",
+   "ticker": "KXNFLWINS-DET",
+   "title": "Pro football wins Detroit",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXNBARISINGSTARS",
-   "title": "Pro Basketball Rising Stars Tournament",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'rising stars'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSJAC",
-   "title": "Pro football exact wins Jacksonville",
+   "ticker": "KXNFLDRAFTLB",
+   "title": "Pro Football Linebacker Drafted",
    "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-CAR",
-   "title": "Pro football wins Carolina",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBADRAFTTOP10",
-   "title": "NBA Draft Top 10 Pick",
-   "sport": "NBA",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXLEADERNFLPTDS",
-   "title": "NFL leader passing TDs",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSTB",
-   "title": "Pro football exact wins Tampa Bay",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSCLE",
-   "title": "Pro football exact wins Cleveland",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNBADRAFT2",
-   "title": "NBA Draft Second Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSIND",
-   "title": "Pro football exact wins Indianapolis",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-LV",
-   "title": "Pro football wins Las Vegas",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBA2NDTEAMDEF",
-   "title": "NBA All-Defensive 2nd Team",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword '2nd team'"
-  },
-  {
-   "ticker": "KXNBADRAFTPICK",
-   "title": "Pro Basketball Draft Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-MIA",
-   "title": "Pro football wins Miami",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBAALLSTAR",
-   "title": "NBA All-Star game",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'game'"
   },
   {
    "ticker": "KXNFLDRAFTQB",
@@ -1187,32 +550,11 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNFLWINS-GB",
-   "title": "Pro football wins Green Bay",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
    "ticker": "KXLEADERPINT",
    "title": "Pro Football Passing Interceptions Leader",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXLEADERNBASTL",
-   "title": "NBA SPG Leader",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXNBADRAFTCONF",
-   "title": "Pro Basketball Players Drafted by Conference",
-   "sport": "NBA",
-   "kind": "Conference",
-   "reason": "exclude keyword 'draft'"
   },
   {
    "ticker": "KXNBADRAFTTOP30",
@@ -1222,8 +564,22 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNFLDRAFTTE",
-   "title": "Pro Football Tight End Drafted",
+   "ticker": "KXNFLWINS-NYG",
+   "title": "Pro football wins New York G",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBADRAFT7",
+   "title": "NBA Draft Seventh Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLDRAFTDT",
+   "title": "Pro Football Defensive Tackle Drafted",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
@@ -1236,23 +592,156 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNHLWINS",
-   "title": "NHL wins ",
-   "sport": "NHL",
+   "ticker": "KXLEADERNBAAST",
+   "title": "NBA APG Leader",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLWINS-KC",
+   "title": "Pro football wins Kansas City",
+   "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXNFLEXACTWINSNYJ",
-   "title": "Pro football exact wins New York J",
+   "ticker": "KXNFLWINS-LA",
+   "title": "Pro football wins Los Angeles R",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBADRAFT1",
+   "title": "NBA Draft First Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSMIA",
+   "title": "Pro football exact wins Miami",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXNFLDRAFTOL",
-   "title": "Pro Football Offensive Line Drafted ",
+   "ticker": "KXNBADRAFTTOP20",
+   "title": "NBA Draft Top 20 Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBAFINALSEXACT",
+   "title": "Pro Basketball Championship Series Score",
+   "sport": "NBA",
+   "kind": "Champion",
+   "reason": "exclude keyword 'series score'"
+  },
+  {
+   "ticker": "KXNFLWINS-GB",
+   "title": "Pro football wins Green Bay",
    "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBAWFINMVP",
+   "title": "NBA Western Conference Finals MVP",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "exclude keyword 'conference finals mvp'"
+  },
+  {
+   "ticker": "KXNBASPORTSMANSHIP",
+   "title": "NBA Sportsmanship Award",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "exclude keyword 'sportsmanship'"
+  },
+  {
+   "ticker": "KXNFLWINS-ATL",
+   "title": "Pro football wins Atlanta",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSCIN",
+   "title": "Pro football exact wins Cincinnati",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLWINS-TB",
+   "title": "Pro football wins Tampa Bay",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-PIT",
+   "title": "Pro football wins Pittsburgh",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBADRAFTPICK",
+   "title": "Pro Basketball Draft Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSNE",
+   "title": "Pro football exact wins New England",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXLEADERNFLRUSHTDS",
+   "title": "NFL leader rushing TDs",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNHL1STTEAM",
+   "title": "All NHL First Team",
+   "sport": "NHL",
+   "kind": "Other",
+   "reason": "exclude keyword 'all nhl'"
+  },
+  {
+   "ticker": "KXNFLDRAFTTE",
+   "title": "Pro Football Tight End Drafted",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBACUP",
+   "title": "Pro Basketball Cup Champion",
+   "sport": "NBA",
+   "kind": "Champion",
+   "reason": "exclude keyword 'cup champion'"
+  },
+  {
+   "ticker": "KXTEAMSINSB",
+   "title": "Teams in Super Bowl",
+   "sport": "NFL",
+   "kind": "Champion",
+   "reason": "exclude keyword 'teams in'"
+  },
+  {
+   "ticker": "KXNBADRAFT8",
+   "title": "NBA Draft Eighth Pick",
+   "sport": "NBA",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
   },
@@ -1264,11 +753,25 @@
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXLEADERNBA3PT",
-   "title": "NBA 3PG Leader",
+   "ticker": "KXNFLDRAFTDB",
+   "title": "Pro Football Defensive Back Drafted",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBA1STTEAMDEF",
+   "title": "NBA All-Defensive 1st Team",
    "sport": "NBA",
    "kind": "Other",
-   "reason": "exclude keyword 'leader'"
+   "reason": "exclude keyword '1st team'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSMIN",
+   "title": "Pro football exact wins Minnesota",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
   },
   {
    "ticker": "KXNBATOPPICK",
@@ -1278,120 +781,155 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNFLWINS-NE",
-   "title": "Pro football wins New England",
+   "ticker": "KXLEADERNBA3PT",
+   "title": "NBA 3PG Leader",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSIND",
+   "title": "Pro football exact wins Indianapolis",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSBAL",
+   "title": "Pro football exact wins Baltimore",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBADRAFTCONF",
+   "title": "Pro Basketball Players Drafted by Conference",
+   "sport": "NBA",
+   "kind": "Conference",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLWINS-SEA",
+   "title": "Pro football wins Seattle",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXNFLWINS-ATL",
-   "title": "Pro football wins Atlanta",
+   "ticker": "KXNFLEXACTWINSNO",
+   "title": "Pro football exact wins New Orleans",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBADRAFTTOP",
+   "title": "Pro Basketball Top Draft",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLWINS-JAC",
+   "title": "Pro football wins Jacksonville",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
   },
   {
-   "ticker": "KXLEADERNFLRYDS",
-   "title": "NFL leader receiving yards",
+   "ticker": "KXNFLFFH2HSEASON",
+   "title": "Season Fantasy Football Head-to-Head",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'fantasy'"
+  },
+  {
+   "ticker": "KXNFLWINS-NYJ",
+   "title": "Pro football wins New York J",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSTB",
+   "title": "Pro football exact wins Tampa Bay",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSLAC",
+   "title": "Pro football exact wins Los Angeles C",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBADRAFT4",
+   "title": "NBA Draft Fourth Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLWINS-CAR",
+   "title": "Pro football wins Carolina",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-LV",
+   "title": "Pro football wins Las Vegas",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBAALLSTAR",
+   "title": "NBA All-Star game",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'game'"
+  },
+  {
+   "ticker": "KXLEADERNFLRUSHYDS",
+   "title": "NFL leader rushing yards",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'leader'"
   },
   {
-   "ticker": "KXNFLEXACTWINSGB",
-   "title": "Pro football exact wins Green Bay",
+   "ticker": "KXLEADERNFLRTDS",
+   "title": "NFL leader receiving TDs",
    "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'exact'"
+   "reason": "exclude keyword 'leader'"
   },
   {
-   "ticker": "KXNBA3RDTEAM",
-   "title": "All-NBA 3rd Team",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword '3rd team'"
-  },
-  {
-   "ticker": "KXNFLDRAFTPICK",
-   "title": "NFL Draft Pick",
+   "ticker": "KXNFLALLROOK",
+   "title": "NFL All Rookie Team",
    "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSCHI",
-   "title": "Pro football exact wins Chicago",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNBADRAFT9",
-   "title": "NBA Draft Ninth Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLWINS-ARI",
-   "title": "Pro football wins Arizona",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'wins'"
-  },
-  {
-   "ticker": "KXNBAEFINMVP",
-   "title": "NBA Eastern Conference Finals MVP",
-   "sport": "NBA",
    "kind": "Award",
-   "reason": "exclude keyword 'conference finals mvp'"
+   "reason": "exclude keyword 'all rookie'"
   },
   {
-   "ticker": "KXNBADRAFT8",
-   "title": "NBA Draft Eighth Pick",
+   "ticker": "KXNFLDRAFTTOP",
+   "title": "Pro Football Top Draft",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBADRAFT2",
+   "title": "NBA Draft Second Pick",
    "sport": "NBA",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXLEADERNBAPTS",
-   "title": "NBA PPG Leader",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'leader'"
-  },
-  {
-   "ticker": "KXLEADERNFLPINT",
-   "title": "Pro Football Pass INT ",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "no futures/award keyword"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSMIA",
-   "title": "Pro football exact wins Miami",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSDET",
-   "title": "Pro football exact wins Detroit",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLEXACTWINSDAL",
-   "title": "Pro football exact wins Dallas",
-   "sport": "NFL",
-   "kind": "Other",
-   "reason": "exclude keyword 'exact'"
-  },
-  {
-   "ticker": "KXNFLWINS-IND",
-   "title": "Pro football wins Indianapolis",
+   "ticker": "KXNFLWINS-TEN",
+   "title": "Pro football wins Tennessee",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
@@ -1404,6 +942,13 @@
    "reason": "exclude keyword '3-point contest'"
   },
   {
+   "ticker": "KXNFLEXACTWINSLV",
+   "title": "Pro football exact wins Las Vegas",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
    "ticker": "KXNBADRAFT5",
    "title": "NBA Draft Fifth Pick",
    "sport": "NBA",
@@ -1411,39 +956,25 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNBADRAFTTOP20",
-   "title": "NBA Draft Top 20 Pick",
-   "sport": "NBA",
-   "kind": "Other",
-   "reason": "exclude keyword 'draft'"
-  },
-  {
-   "ticker": "KXNFLDRAFTRB",
-   "title": "Pro Football Running Back Drafted",
+   "ticker": "KXNFLEXACTWINSNYJ",
+   "title": "Pro football exact wins New York J",
    "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'draft'"
+   "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXNHLFINALSEXACT",
-   "title": "NHL Championship Series Score",
-   "sport": "NHL",
-   "kind": "Champion",
-   "reason": "exclude keyword 'series score'"
-  },
-  {
-   "ticker": "KXNBADRAFT7",
-   "title": "NBA Draft Seventh Pick",
-   "sport": "NBA",
+   "ticker": "KXNFLEXACTWINSPHI",
+   "title": "Pro football exact wins Philadephia",
+   "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'draft'"
+   "reason": "exclude keyword 'exact'"
   },
   {
-   "ticker": "KXNBADRAFT4",
-   "title": "NBA Draft Fourth Pick",
-   "sport": "NBA",
+   "ticker": "KXNFLEXACTWINSWAS",
+   "title": "Pro football exact wins Washington",
+   "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'draft'"
+   "reason": "exclude keyword 'exact'"
   },
   {
    "ticker": "KXLEADERNBAREB",
@@ -1453,6 +984,41 @@
    "reason": "exclude keyword 'leader'"
   },
   {
+   "ticker": "KXNFLEXACTWINSNYG",
+   "title": "Pro football exact wins New York G",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBA2NDTEAMDEF",
+   "title": "NBA All-Defensive 2nd Team",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword '2nd team'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSARI",
+   "title": "Pro football exact wins Arizona",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSJAC",
+   "title": "Pro football exact wins Jacksonville",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSDET",
+   "title": "Pro football exact wins Detroit",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
    "ticker": "KXNBADRAFTTOP15",
    "title": "NBA Draft Top 15 Pick",
    "sport": "NBA",
@@ -1460,22 +1026,85 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNBADRAFTTOP5",
-   "title": "NBA Draft Top 5 Pick",
+   "ticker": "KXNBA1STTEAM",
+   "title": "All-NBA 1st Team",
    "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword '1st team'"
+  },
+  {
+   "ticker": "KXLEADERNFLINT",
+   "title": "NFL leader interceptions",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNBA3RDTEAM",
+   "title": "All-NBA 3rd Team",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword '3rd team'"
+  },
+  {
+   "ticker": "KXNFLDRAFTEDGE",
+   "title": "Pro Football Edge Drafted",
+   "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNFLEXACTWINSDEN",
-   "title": "Pro football exact wins Denver",
+   "ticker": "KXCOACHOUTNFLFIRST",
+   "title": "First NFL Coach Out",
    "sport": "NFL",
    "kind": "Other",
-   "reason": "exclude keyword 'exact'"
+   "reason": "exclude keyword 'coach out'"
   },
   {
-   "ticker": "KXNFLWINS-DAL",
-   "title": "Pro football wins Dallas",
+   "ticker": "KXNFLWINS-LAC",
+   "title": "Pro football wins Los Angeles C",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-NO",
+   "title": "Pro football wins New Orleans",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-MIN",
+   "title": "Pro football wins Minnesota",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXTEAMSINSC",
+   "title": "Teams in Stanley Cup",
+   "sport": "NHL",
+   "kind": "Champion",
+   "reason": "exclude keyword 'teams in'"
+  },
+  {
+   "ticker": "KXNFLWINS-PHI",
+   "title": "Pro football wins Philadelphia",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-CIN",
+   "title": "Pro football wins Cincinnati",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-MIA",
+   "title": "Pro football wins Miami",
    "sport": "NFL",
    "kind": "Other",
    "reason": "exclude keyword 'wins'"
@@ -1488,18 +1117,389 @@
    "reason": "exclude keyword 'draft'"
   },
   {
-   "ticker": "KXNBAWFINMVP",
-   "title": "NBA Western Conference Finals MVP",
+   "ticker": "KXNFLWINS-CLE",
+   "title": "Pro football wins Cleveland",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBADRAFTTOP25",
+   "title": "NBA Draft Top 25 Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLFIRSTPICK",
+   "title": "First Pick in NFL Draft",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSCAR",
+   "title": "Pro football exact wins Carolina",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLDRAFTPICK",
+   "title": "NFL Draft Pick",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNHLWINS",
+   "title": "NHL wins ",
+   "sport": "NHL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLDRAFT1ST",
+   "title": "Make the 1st pick in NFL Draft",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLWINS-DAL",
+   "title": "Pro football wins Dallas",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNHLFINALSEXACT",
+   "title": "NHL Championship Series Score",
+   "sport": "NHL",
+   "kind": "Champion",
+   "reason": "exclude keyword 'series score'"
+  },
+  {
+   "ticker": "KXRECORDNBABEST",
+   "title": "Best Pro Basketball Record",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "no futures/award keyword"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSSF",
+   "title": "Pro football exact wins San Francisco",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLWINS-BUF",
+   "title": "Pro football wins Buffalo",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBAEFINMVP",
+   "title": "NBA Eastern Conference Finals MVP",
    "sport": "NBA",
    "kind": "Award",
    "reason": "exclude keyword 'conference finals mvp'"
   },
   {
-   "ticker": "KXNBACUP",
-   "title": "Pro Basketball Cup Champion",
+   "ticker": "KXNBACUPMVP",
+   "title": "NBA Cup Tournament MVP",
    "sport": "NBA",
-   "kind": "Champion",
-   "reason": "exclude keyword 'cup champion'"
+   "kind": "Award",
+   "reason": "exclude keyword 'cup tournament'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSLA",
+   "title": "Pro football exact wins Los Angeles R",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLWINS-BAL",
+   "title": "Pro football wins Baltimore",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLWINS-HOU",
+   "title": "Pro football wins Houston",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBATOP3",
+   "title": "Pro Basketball Draft Lottery Top 3",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSHOU",
+   "title": "Pro football exact wins Houston",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLWINS-DEN",
+   "title": "Pro football wins Denver",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLLASTPICKPOS",
+   "title": "NFL Last Pick of the Draft Position",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBADRAFTTOP10",
+   "title": "NBA Draft Top 10 Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLASSCOACH",
+   "title": "NFL Assistant Coach of the Year",
+   "sport": "NFL",
+   "kind": "Award",
+   "reason": "exclude keyword 'assistant coach'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSBUF",
+   "title": "Pro football exact wins Buffalo",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSDEN",
+   "title": "Pro football exact wins Denver",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXLEADERNFLSACKS",
+   "title": "NFL Sacks Leader",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNBA2NDTEAM",
+   "title": "All-NBA 2nd Team",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword '2nd team'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSGB",
+   "title": "Pro football exact wins Green Bay",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSKC",
+   "title": "Pro football exact wins Kansas City",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXLEADERNFLPYDS",
+   "title": "NFL leader passing yards",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLWINS-ARI",
+   "title": "Pro football wins Arizona",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSPIT",
+   "title": "Pro football exact wins Pittsburgh",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXLEADERNBAPTS",
+   "title": "NBA PPG Leader",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLDRAFT1",
+   "title": "NFL Draft First Pick",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLWINS-CHI",
+   "title": "Pro football wins Chicago",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBAALLSTARGAME",
+   "title": "NBA All-Star Game Winner",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'game'"
+  },
+  {
+   "ticker": "KXLEADERNFLPTDS",
+   "title": "NFL leader passing TDs",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSATL",
+   "title": "Pro football exact wins Atlanta",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBAROOKIEAS",
+   "title": "NBA Rookies to Be an All-Star",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "exclude keyword 'all-star'"
+  },
+  {
+   "ticker": "KXNFLWINS-IND",
+   "title": "Pro football wins Indianapolis",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'wins'"
+  },
+  {
+   "ticker": "KXNBADRAFT6",
+   "title": "NBA Draft Sixth Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSCHI",
+   "title": "Pro football exact wins Chicago",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXNBAPLAYIN",
+   "title": "Which Team Will Make the Play-In Tournament",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'play-in'"
+  },
+  {
+   "ticker": "KXNBADRAFT9",
+   "title": "NBA Draft Ninth Pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNBARISINGSTARS",
+   "title": "Pro Basketball Rising Stars Tournament",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'rising stars'"
+  },
+  {
+   "ticker": "KXNFLDRAFTWR",
+   "title": "Pro Football Wide Receiver Drafted ",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXNFLDRAFTRB",
+   "title": "Pro Football Running Back Drafted",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
+  },
+  {
+   "ticker": "KXLEADERNBABLK",
+   "title": "NBA BPG Leader",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXSBMENTION",
+   "title": "SB mention",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'mention'"
+  },
+  {
+   "ticker": "KXNBAALLSTARMVP",
+   "title": "NBA All-Star Game MVP",
+   "sport": "NBA",
+   "kind": "Award",
+   "reason": "exclude keyword 'game'"
+  },
+  {
+   "ticker": "KXNBASLAMDUNK",
+   "title": "NBA Slam Dunk Contest Winner",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'slam dunk'"
+  },
+  {
+   "ticker": "KXLEADERNFLRYDS",
+   "title": "NFL leader receiving yards",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'leader'"
+  },
+  {
+   "ticker": "KXNFLEXACTWINSCLE",
+   "title": "Pro football exact wins Cleveland",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'exact'"
+  },
+  {
+   "ticker": "KXFIRSTPICKNBA",
+   "title": "NBA first pick",
+   "sport": "NBA",
+   "kind": "Other",
+   "reason": "exclude keyword 'pick'"
+  },
+  {
+   "ticker": "KXNFLDRAFTOL",
+   "title": "Pro Football Offensive Line Drafted ",
+   "sport": "NFL",
+   "kind": "Other",
+   "reason": "exclude keyword 'draft'"
   }
  ]
 }
